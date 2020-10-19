@@ -1,0 +1,183 @@
+.navbar-lang-switcher {
+    position: relative;
+    height: 100%;
+
+    &:hover {
+        .navbar-lang-switcher__country-wrapper {
+            height: 3rem;
+            opacity: 1;
+        }
+    }
+    
+    .navbar-lang-switcher__flag-list {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        background: rgba($light, .9);
+        box-shadow: $shadow-20;
+        overflow: hidden;
+        margin-left: -1rem;
+    }
+
+    .navbar-lang-switcher__country-wrapper {
+        display: flex;
+        align-items: center;
+        height: 0;
+        opacity: 0;
+        transition-property: height, opacity, box-shadow;
+        transition-duration: $transition-duration;
+
+        &:not(.navbar-lang-switcher__country-wrapper--active) {
+            padding: 0 1rem;
+            &:hover, &:focus {
+                background: $grey-100;
+                box-shadow: $shadow-20;
+            }
+    
+        }
+
+        &.navbar-lang-switcher__country-wrapper--active {
+            height: 100%;
+            opacity: 1;
+            
+            &::after {
+                content: 'keyboard_arrow_down';
+                font-family: 'Material Icons';
+                color: $dark-secondary;
+            }
+        }
+    }
+
+    .navbar-lang-switcher__flag {
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        box-shadow: $shadow-20;
+        position: relative;
+        overflow: hidden;
+
+        &.navbar-lang-switcher__flag--poland {
+            background: linear-gradient(to bottom,
+            $flag-white 50%,
+            $flag-red 50%
+            );
+        }
+
+        &.navbar-lang-switcher__flag--italy {
+            background: linear-gradient(to right,
+            $flag-green 33%,
+            $flag-white 33%, $flag-white 66%,
+            $flag-red 66%
+            );
+        }
+
+        &.navbar-lang-switcher__flag--greece {
+            background: linear-gradient(to bottom,
+            $flag-blue 11%,
+            $flag-white 11%, $flag-white 22%,
+            $flag-blue 22%,  $flag-blue 33%,
+            $flag-white 33%, $flag-white 44%,
+            $flag-blue 44%,  $flag-blue 55%,
+            $flag-white 55%, $flag-white 66%,
+            $flag-blue 66%,  $flag-blue 77%,
+            $flag-white 77%, $flag-white 88%,
+            $flag-blue 88%
+            );
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 50%;
+                height: 50%;
+                background: 
+                    linear-gradient(to bottom,
+                        transparent 40%,
+                        $flag-white 40%, $flag-white 60%,
+                        transparent 60%
+                    ),
+                    linear-gradient(to right,
+                        $flag-blue 40%,
+                        $flag-white 40%, $flag-white 60%,
+                        $flag-blue 60%
+                );
+
+
+
+            }
+        }
+
+        &.navbar-lang-switcher__flag--czechrepublic {
+            background: linear-gradient(to bottom,
+            $flag-white 50%,
+            $flag-red 50%
+            );
+
+            &::after {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 50%;
+                height: 100%;
+                background: $flag-blue;
+                clip-path: polygon(0 0, 0 100%, 100% 50%);
+            }
+
+        }
+
+        &.navbar-lang-switcher__flag--Seychelles {
+            background: linear-gradient(115deg, $flag-blue 0%, $flag-blue 28%, transparent 30%),
+            linear-gradient(130deg, $flag-yellow 0%, $flag-yellow 43%, transparent 45%),
+            linear-gradient(145deg, $flag-red 0%, $flag-red 58%, transparent 60%),
+            linear-gradient(160deg, $flag-white 0%, $flag-white 73%, transparent 75%),
+            linear-gradient(172deg, $flag-green 0%, $flag-green 90%);
+
+        }
+
+        &.navbar-lang-switcher__flag--Grenadines {
+            background: linear-gradient(to right,
+            $flag-blue 25%,
+            $flag-yellow 25%, $flag-yellow 75%,
+            $flag-green 75%
+            );
+        &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scaleY(1.75) rotate(45deg);
+            width: .2rem;
+            height: .2rem;
+            background: $flag-green;
+            box-shadow: -.3rem 0 0 $flag-green, 0 -.3rem 0 $flag-green;
+
+        }
+        }
+
+        &.navbar-lang-switcher__flag--Maledives {
+            background-color: $flag-green;
+            background-image:
+                linear-gradient(to right,
+                    $flag-red 16%,
+                    transparent 16%, transparent 84%,
+                    $flag-red 84%
+                ),
+                linear-gradient(to bottom,
+                    $flag-red 16%,
+                    transparent 16%, transparent 84%,
+                    $flag-red 84%
+                ),
+                radial-gradient(circle at calc(50% + .3rem), $flag-green .35rem, transparent .4rem),
+                radial-gradient(circle at calc(50% + .1rem), $flag-white .35rem, transparent .4rem);
+        }
+
+    
+    }
+
+    .navbar-lang-switcher__country-name {
+        white-space: nowrap;
+        margin-left: 0.5rem;
+    }
+}

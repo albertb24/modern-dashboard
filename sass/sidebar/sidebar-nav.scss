@@ -1,0 +1,111 @@
+.sidebar-nav {
+    width: 100%;
+
+    .sidebar-nav__header {
+        padding: .5rem 1rem;
+        font-size: $font-size-xs;
+        font-weight: $font-weight-bold;
+        color: $dark-disabled;
+    }
+
+    .sidebar-nav__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        font-weight: $font-weight-bold;
+        color: $dark-secondary;
+        font-size: $font-size-sm;
+        padding: 0 1rem;
+        height: 2.5rem;
+        position: relative;
+
+    &:hover, &:focus {
+        outline: none;
+
+        .sidebar-nav__icon,
+        .sidebar-nav__title {
+            color: $primary;
+        }
+    }
+
+
+    &.sidebar-nav__item--primary {
+
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: $primary;
+            position: absolute;
+            z-index: 0;
+            left: 100%;
+            top: 0;
+            opacity: 0;
+        }
+
+        &:hover, &:focus {
+            
+            &::before {
+                left: 0;
+                opacity: 1;
+                width: .2rem;
+                transition: left .1s, width .15s .1s, opacity 2s;
+            }
+        }
+    }
+
+
+    &.sidebar-nav__item--secondary {
+        .sidebar-nav__icon-wrapper::after {
+            content: 'arrow_forward';
+            font-family: 'Material Icons';
+            font-size: $font-size-lg;
+            color: $dark-secondary;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(100%);
+            opacity: 0;
+            transition-property: color, transform, opacity;
+            transition-duration: $transition-duration;
+
+            
+
+        }
+        &:hover, &:focus {
+
+            .sidebar-nav__icon-wrapper::after {
+                color: $secondary;
+                transform: translate(0);
+                opacity: 1;
+            }
+
+            .sidebar-nav__icon {
+                color: $secondary;
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            .sidebar-nav__title {color: $secondary;} 
+        }
+    }
+}
+
+
+    .sidebar-nav__icon-wrapper {
+        position: relative;
+        margin-right: 1rem;
+        width: 1.5rem;
+
+    .sidebar-nav__icon {
+        font-size: $font-size-xl;
+        color: $dark-secondary;
+        transition-property: color, transform, opacity;
+        transition-duration: $transition-duration;
+
+    }
+    .sidebar-nav__title {
+        transition: color $transition-duration;
+    }
+
+    }
+}

@@ -1,0 +1,72 @@
+.sidebar-toggler__checkbox {
+    position: absolute;
+    z-index: -10;
+
+    &:checked {
+        + .sidebar {
+            width: 3.5rem;
+
+        .sidebar-toggler {
+            width: 100%;
+            height: 3rem;
+        }
+
+        .sidebar-toggler__icon {
+            &::before {transform: rotate(30deg);}
+            &::after  {transform: rotate(-30deg);}
+        }
+
+        .sidebar-logo__wrapper {
+            height: 0;
+            overflow: hidden;
+            display: block;
+        }
+
+        }
+    }
+}
+
+.sidebar-toggler {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+
+
+    &:hover .sidebar-toggler__icon {
+        &::before, &::after {background: $primary;}
+    }
+
+    .sidebar-toggler__icon {
+        width: .75rem;
+        height: .5rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+       
+
+        &::before, &::after {
+            content: '';
+            position: absolute;
+            width: .75rem;
+            height: .15rem;
+            background: $grey-300;
+        }
+
+        &::before {
+            top: 0;
+            transform: rotate(-30deg);
+        }
+
+        &::after {
+            bottom: 0;
+            transform: rotate(30deg);
+        }
+    }
+
+
+}

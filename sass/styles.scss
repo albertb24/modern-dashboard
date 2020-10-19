@@ -1,0 +1,21 @@
+@import 'reset';
+@import 'app';
+
+
+//Sidebar
+@import 'sidebar/sidebar'; 
+@import 'sidebar/sidebar-logo'; 
+@import 'sidebar/sidebar-user';
+@import 'sidebar/sidebar-nav';
+@import 'sidebar/sidebar-toggler';
+
+//Navbar
+@import "navbar/navbar";
+@import "navbar/navbar-search";
+@import "navbar/navbar-lang-switcher";
+
+//Pages
+@import 'pages/dashboard';
+
+
+
